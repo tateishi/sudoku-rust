@@ -26,3 +26,9 @@ impl fmt::Display for RangeSet {
         write!(f, "[{}]", str)
     }
 }
+
+#[test]
+fn test_init() {
+    let s = RangeSet::new();
+    println!("{}", s);
+}
