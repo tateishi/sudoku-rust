@@ -16,12 +16,8 @@ impl fmt::Display for RangeSet {
         let str = self.value
             .iter()
             .enumerate()
-            .map(|(n, b)|
-                 if *b {
-                     (n+1).to_string()
-                 } else {
-                     String::from("")
-                 })
+            .filter(|(_, &b)| b)
+            .map(|(n, _)| (n + 1).to_string())
             .collect::<String>();
         write!(f, "[{}]", str)
     }
